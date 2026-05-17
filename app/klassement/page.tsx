@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "../../components/Header";
 
 const players = [
   { name: "Jan", points: 42, exact: 6 },

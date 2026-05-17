@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "../../components/Header";
 
 export default function BetalenPage() {
   const tikkieUrl = process.env.NEXT_PUBLIC_TIKKIE_URL || "#";

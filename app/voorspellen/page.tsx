@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "../../components/Header";
 
 const matches = [
   { id: 1, home: "Nederland", away: "Canada", time: "Vrijdag 21:00" },
