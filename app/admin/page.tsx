@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "../../components/Header";
 
 const participants = [
   { name: "Jan de Vries", email: "jan@example.nl", paid: true },
