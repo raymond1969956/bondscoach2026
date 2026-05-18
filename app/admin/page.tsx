@@ -37,14 +37,14 @@ function calculatePoints(
   return 0;
 }
 export default function AdminPage() {
-  const supabase = createBrowserSupabaseClient();
+  const supabase = createBrowserSupabaseClient;
 
   const [matches, setMatches] = useState<Match[]>([]);
   const [scores, setScores] = useState<Record<string, { home: string; away: string }>>({});
   const [message, setMessage] = useState("");
 
   async function loadMatches() {
-    const { data, error } = await supabase
+    const { data, error } = await supabase()
       .from("matches")
       .select("*")
       .order("starts_at", { ascending: true });
@@ -79,8 +79,8 @@ export default function AdminPage() {
       return;
     }
 
-    const { error } = await supabase
-      .from("matches")
+    const { error } = await supabase()
+  .from("matches")
       .update({
         home_score: Number(score.home),
         away_score: Number(score.away),
