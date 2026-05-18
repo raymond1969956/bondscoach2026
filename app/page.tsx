@@ -11,7 +11,7 @@ const leaderboard = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#1a0d02] text-white">
+    <main className="min-h-screen bg-[#1a0d02] pb-24 text-white md:pb-0">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-[-10%] top-[-10%] h-[32rem] w-[32rem] rounded-full bg-orange-500/70 blur-3xl" />
         <div className="absolute right-[-10%] top-[15%] h-[30rem] w-[30rem] rounded-full bg-orange-400/55 blur-3xl" />
@@ -38,6 +38,33 @@ export default function HomePage() {
             <Link href="/betalen" className="rounded-xl bg-orange-400 px-6 py-3 text-center font-bold text-[#140900] hover:bg-orange-300">
               Betaal €5 en doe mee
             </Link>
+            <div className="mt-8 rounded-3xl border border-orange-300/30 bg-orange-500/15 p-6 backdrop-blur">
+  <p className="text-sm uppercase tracking-[0.2em] text-orange-300">
+    wk 2026 countdown
+  </p>
+
+  <div className="mt-4 grid grid-cols-4 gap-3 text-center">
+    <div className="rounded-2xl bg-orange-500/20 p-4">
+      <p className="text-3xl font-black">392</p>
+      <p className="mt-1 text-xs text-orange-50/70">dagen</p>
+    </div>
+
+    <div className="rounded-2xl bg-orange-500/20 p-4">
+      <p className="text-3xl font-black">11</p>
+      <p className="mt-1 text-xs text-orange-50/70">uren</p>
+    </div>
+
+    <div className="rounded-2xl bg-orange-500/20 p-4">
+      <p className="text-3xl font-black">42</p>
+      <p className="mt-1 text-xs text-orange-50/70">min</p>
+    </div>
+
+    <div className="rounded-2xl bg-orange-500/20 p-4">
+      <p className="text-3xl font-black">18</p>
+      <p className="mt-1 text-xs text-orange-50/70">sec</p>
+    </div>
+  </div>
+</div>
             <Link href="/spelregels" className="rounded-xl border border-orange-300/30 bg-orange-500/20 px-6 py-3 text-center font-bold text-white hover:bg-orange-500/30">
               Bekijk spelregels
             </Link>

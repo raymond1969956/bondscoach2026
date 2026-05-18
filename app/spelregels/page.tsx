@@ -2,7 +2,7 @@ import Header from "../../components/Header";
 
 export default function SpelregelsPage() {
   return (
-    <main className="min-h-screen bg-[#1a0d02] text-white">
+    <main className="min-h-screen bg-[#1a0d02] pb-24 text-white md:pb-0">
       <Header />
       <section className="mx-auto max-w-4xl px-5 py-12 md:px-8">
         <h1 className="text-4xl font-black">Spelregels & prijzenpot</h1>

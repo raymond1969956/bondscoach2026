@@ -4,7 +4,7 @@ export default function BetalenPage() {
   const tikkieUrl = process.env.NEXT_PUBLIC_TIKKIE_URL || "#";
 
   return (
-    <main className="min-h-screen bg-[#1a0d02] text-white">
+    <main className="min-h-screen bg-[#1a0d02] pb-24 text-white md:pb-0">
       <Header />
       <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
         <div className="rounded-3xl border border-orange-300/35 bg-orange-500/25 p-8 shadow-2xl backdrop-blur">
