@@ -93,7 +93,7 @@ export default function AdminPage() {
       setMessage(`Opslaan mislukt: ${error.message}`);
       return;
     }
-    const { data: predictions } = await supabase
+    const { data: predictions } = await supabase()
   .from("test_predictions")
   .select("*")
   .eq("match_id", match.id);
