@@ -107,10 +107,10 @@ if (predictions) {
       Number(score.away)
     );
 
-    await supabase
-      .from("test_predictions")
-      .update({ points })
-      .eq("id", prediction.id);
+    const { data: predictions } = await supabase()
+  .from("test_predictions")
+  .select("*")
+  .eq("match_id", match.id);
   }
 }
 
