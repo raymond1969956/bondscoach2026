@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import Header from "../components/Header";
-import { Trophy, Users, Euro, Shield, CheckCircle2 } from "lucide-react";
+import { Trophy, Euro, Shield, CheckCircle2 } from "lucide-react";
 
 const leaderboard = [
   { name: "Jan", points: 42 },
@@ -69,20 +69,13 @@ export default function HomePage() {
               Bekijk spelregels
             </Link>
           </div>
-
-          <div className="mt-8 rounded-3xl border border-orange-300/30 bg-orange-500/20 p-4 backdrop-blur">
-            <div className="mb-3 flex items-center gap-2 text-sm font-bold text-orange-100">
-              <Users className="h-4 w-4" /> groepschat vibes tijdens het WK
-            </div>
-            <div className="space-y-2">
-              <div className="ml-auto max-w-[85%] rounded-2xl bg-green-500/20 px-4 py-3 text-right text-sm">NEDERLANDDDD 🇳🇱🔥</div>
-              <div className="max-w-[85%] rounded-2xl bg-orange-500/30 px-4 py-3 text-sm">Wie heeft dit serieus 3-0 voorspeld 😭</div>
-              <div className="ml-auto max-w-[85%] rounded-2xl bg-green-500/20 px-4 py-3 text-right text-sm">Jan staat gewoon eerste hoor</div>
-            </div>
+          
           </div>
-        </div>
 
-        <div className="space-y-6">
+
+        
+
+       <div className="space-y-6">
           <div className="rounded-3xl border border-orange-300/35 bg-orange-500/30 p-6 shadow-2xl backdrop-blur">
             <div className="flex items-center gap-3">
               <div className="rounded-2xl bg-orange-400 p-3 text-[#140900]">
