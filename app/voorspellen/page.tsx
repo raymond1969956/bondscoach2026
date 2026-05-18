@@ -95,10 +95,22 @@ useEffect(() => {
       <Header />
 
       <section className="mx-auto max-w-5xl px-5 py-12 md:px-8">
-        <h1 className="text-4xl font-black">Voorspellingen</h1>
-        <p className="mt-3 text-orange-50/75">
-          Vul je naam in en sla je voorspellingen op.
-        </p>
+        <p className="text-sm uppercase tracking-[0.2em] text-orange-300">
+  wk voorspellingen
+</p>
+
+<h1 className="mt-2 text-4xl font-black">Vul je voorspellingen in</h1>
+
+<p className="mt-3 text-orange-50/75">
+  Kies per wedstrijd de eindstand. Je voorspelling telt mee zodra je hem opslaat.
+</p>
+
+<div className="mt-5 rounded-2xl border border-orange-300/30 bg-orange-500/15 p-4 text-sm text-orange-50/80">
+  ⚠️ Voorspellingen sluiten zodra de wedstrijd begint. Daarna kan je score niet meer aangepast worden.
+</div>
+<div className="mt-3 rounded-2xl border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-100">
+  💳 Alleen betaalde deelnemers tellen mee in het klassement. Niet betaald? Dan worden je voorspellingen verwijderd.
+</div>
 
         <div className="mt-6 rounded-2xl border border-orange-300/35 bg-orange-500/20 p-5">
           <label className="text-sm font-bold text-orange-100">Naam deelnemer</label>
@@ -126,48 +138,53 @@ useEffect(() => {
   {new Date(match.starts_at).toLocaleString("nl-NL")}
 </p>
 
-              <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-                <p className="text-right text-xl font-bold">{match.home_team}</p>
+              <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+  <p className="break-words text-right text-base font-bold leading-tight">
+    {match.home_team}
+  </p>
 
-                <div className="flex items-center gap-2">
-                  <input
-                    type="number"
-                    min="0"
-                    value={scores[match.id]?.home || ""}
-                    onChange={(e) =>
-                      setScores((prev) => ({
-                        ...prev,
-                        [match.id]: {
-                          home: e.target.value,
-                          away: prev[match.id]?.away || "",
-                        },
-                      }))
-                    }
-                    className="h-12 w-12 rounded-xl bg-orange-500/25 text-center text-xl font-black outline-none"
-                    placeholder="0"
-                  />
-                  <span>-</span>
-                  <input
-                    type="number"
-                    min="0"
-                    value={scores[match.id]?.away || ""}
-                    onChange={(e) =>
-                      setScores((prev) => ({
-                        ...prev,
-                        [match.id]: {
-                          home: prev[match.id]?.home || "",
-                          away: e.target.value,
-                        },
-                      }))
-                    }
-                    className="h-12 w-12 rounded-xl bg-orange-500/25 text-center text-xl font-black outline-none"
-                    placeholder="0"
-                  />
-                </div>
+  <div className="flex shrink-0 items-center gap-1">
+    <input
+      type="number"
+      min="0"
+      value={scores[match.id]?.home || ""}
+      onChange={(e) =>
+        setScores((prev) => ({
+          ...prev,
+          [match.id]: {
+            home: e.target.value,
+            away: prev[match.id]?.away || "",
+          },
+        }))
+      }
+      className="h-12 w-12 rounded-xl bg-orange-500/25 text-center text-xl font-black outline-none"
+      placeholder="0"
+    />
 
-                <p className="text-xl font-bold">{match.away_team}</p>
-              </div>
+    <span>-</span>
 
+    <input
+      type="number"
+      min="0"
+      value={scores[match.id]?.away || ""}
+      onChange={(e) =>
+        setScores((prev) => ({
+          ...prev,
+          [match.id]: {
+            home: prev[match.id]?.home || "",
+            away: e.target.value,
+          },
+        }))
+      }
+      className="h-12 w-12 rounded-xl bg-orange-500/25 text-center text-xl font-black outline-none"
+      placeholder="0"
+    />
+  </div>
+
+  <p className="break-words text-base font-bold leading-tight">
+    {match.away_team}
+  </p>
+</div>
               <button
                 onClick={() => savePrediction(match)}
                 className="mt-5 w-full rounded-xl bg-orange-400 px-5 py-3 font-bold text-[#140900]"

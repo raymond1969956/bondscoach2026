@@ -1,4 +1,6 @@
+"use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "../components/Header";
 import { Trophy, Euro, Shield, CheckCircle2 } from "lucide-react";
@@ -10,6 +12,38 @@ const leaderboard = [
 ];
 
 export default function HomePage() {
+  const targetDate = new Date("2026-06-11T19:00:00Z").getTime();
+
+const [timeLeft, setTimeLeft] = useState({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+});
+
+useEffect(() => {
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      return;
+    }
+
+    setTimeLeft({
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    });
+  }
+
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <main className="min-h-screen bg-[#1a0d02] pb-24 text-white md:pb-0">
       <div className="absolute inset-0 overflow-hidden">
@@ -45,22 +79,22 @@ export default function HomePage() {
 
   <div className="mt-4 grid grid-cols-4 gap-3 text-center">
     <div className="rounded-2xl bg-orange-500/20 p-4">
-      <p className="text-3xl font-black">392</p>
+      <p className="text-3xl font-black">{timeLeft.days}</p>
       <p className="mt-1 text-xs text-orange-50/70">dagen</p>
     </div>
 
     <div className="rounded-2xl bg-orange-500/20 p-4">
-      <p className="text-3xl font-black">11</p>
+      <p className="text-3xl font-black">{timeLeft.hours}</p>
       <p className="mt-1 text-xs text-orange-50/70">uren</p>
     </div>
 
     <div className="rounded-2xl bg-orange-500/20 p-4">
-      <p className="text-3xl font-black">42</p>
+      <p className="text-3xl font-black">{timeLeft.minutes}</p>
       <p className="mt-1 text-xs text-orange-50/70">min</p>
     </div>
 
     <div className="rounded-2xl bg-orange-500/20 p-4">
-      <p className="text-3xl font-black">18</p>
+      <p className="text-3xl font-black">{timeLeft.seconds}</p>
       <p className="mt-1 text-xs text-orange-50/70">sec</p>
     </div>
   </div>
@@ -116,7 +150,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-5 pb-16 md:px-8">
+      <section className="relative z-10 mx-auto grid max-w-7xl overflow-hidden items-center gap-8 px-5 py-12 md:grid-cols-[1.15fr_0.85fr] md:px-8 md:py-20">
         <div className="grid gap-4 md:grid-cols-3">
           {[
             ["Betaal eerst €5", "Via Tikkie. Daarna activeert de organisator je deelname."],

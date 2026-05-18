@@ -56,7 +56,7 @@ export default function KlassementPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#1a0d02] pb-24 text-white md:pb-0">
+    <main className="min-h-screen bg-[#1a0d02] text-white">
       <Header />
 
       <section className="mx-auto max-w-4xl px-5 py-12 md:px-8">
